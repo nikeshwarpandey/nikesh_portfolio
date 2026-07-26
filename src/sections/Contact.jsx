@@ -43,17 +43,17 @@ const Contact = () => {
         setSubmitStatus({ type: null, message: "" });
 
         try {
-            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-            console.log('serviceId...', serviceId)
-            console.log('templateId...', templateId)
-            console.log('publicKey...', publicKey)
+            const emailjsConfig = typeof window !== 'undefined' && window.__EMAILJS_CONFIG__ ? window.__EMAILJS_CONFIG__ : {};
+            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || emailjsConfig.serviceId || "";
+            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || emailjsConfig.templateId || "";
+            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || emailjsConfig.publicKey || "";
 
             if (!serviceId || !templateId || !publicKey) {
-                throw new Error(
-                    "EmailJS configuration is missing. Please check your environment variables."
-                );
+                setSubmitStatus({
+                    type: "error",
+                    message: "The contact form is not configured yet. Please add your EmailJS service, template, and public key."
+                });
+                return;
             }
 
             await emailjs.send(serviceId, templateId, {
@@ -72,7 +72,7 @@ const Contact = () => {
             console.error("EmailJS error:", err);
             setSubmitStatus({
                 type: "error",
-                message: err.text || "Failed to send message. Please try again later."
+                message: err?.text || "Failed to send message. Please try again later."
             });
         } finally {
             setIsLoading(false)
