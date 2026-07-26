@@ -54,11 +54,11 @@ const Contact = () => {
             console.log('serviceId:', serviceId || '(missing)');
             console.log('templateId:', templateId || '(missing)');
             console.log('publicKey:', publicKey ? `${publicKey.slice(0, 6)}...` : '(missing)');
-            console.groupEnd();
-            if (!serviceId || !templateId || !publicKey) {
+            // console.groupEnd();
+            if (!serviceId || !templateId || !publicKey || serviceId === 'YOUR_SERVICE_ID' || templateId === 'YOUR_TEMPLATE_ID' || publicKey === 'YOUR_PUBLIC_KEY') {
                 setSubmitStatus({
                     type: "error",
-                    message: "The contact form is not configured yet. Please add your EmailJS service, template, and public key."
+                    message: "EmailJS is not configured yet. Replace the placeholder values in public/config.js with your real service ID, template ID, and public key."
                 });
                 return;
             }
