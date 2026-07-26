@@ -5,6 +5,7 @@ import { LuGithub } from "react-icons/lu";
 import { LuLinkedin } from "react-icons/lu";
 import { LuTwitter } from "react-icons/lu";
 import AnimatedBorderButton from '../components/AnimatedBorderButton';
+import { withBaseUrl } from '@/utils/assetPaths';
 
 const skills = [
     "React",
@@ -26,15 +27,13 @@ const skills = [
     "GitHub Actions"
 ]
 
-const baseUrl = import.meta.env.BASE_URL;
-
 const Hero = () => {
     return (
         <section className="relative min-h-screen flex items-center overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img
-                    src={`${baseUrl}hero_background_img_02.png`}
+                    src={withBaseUrl('hero_background_img_02.png')}
                     alt="Hero image"
                     className="w-full h-full object-cover opacity-40"
                 />
@@ -89,7 +88,7 @@ const Hero = () => {
                             <Button size="lg" onClick={() => window.location.href = '#contact'}>
                                 Contact Me <ArrowRight className="w-5 h-5" />
                             </Button>
-                            <AnimatedBorderButton href={`${baseUrl}Nikesh_fullstack.pdf`} download="Nikesh_fullstack.pdf">
+                            <AnimatedBorderButton href={withBaseUrl('Nikesh_fullstack.pdf')} download="Nikesh_fullstack.pdf">
                                 <Download className="w-5 h-5" />
                                 Download CV
                             </AnimatedBorderButton>
@@ -129,7 +128,7 @@ const Hero = () => {
                             <div className="absolute inset-0 rounded-3xl bg-gradient-to-border from-primary/30 via-transparent to-primary/10 blur-2xl animate-pulse" />
                             <div className="relative glass rounded-3xl p-2 glow-border">
                                 <img
-                                    src={`${baseUrl}IMG_Hero.jpg`}
+                                    src={withBaseUrl('IMG_Hero.jpg')}
                                     alt="Nikeshwar Pandey"
                                     className="w-full aspect-[4/5] object-cover rounded-2xl"
                                 />

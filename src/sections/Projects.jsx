@@ -1,8 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import React from 'react'
 import AnimatedBorderButton from '@/components/AnimatedBorderButton'
-
-const withBaseUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
+import { withBaseUrl } from '@/utils/assetPaths'
 
 const projects = [
     {

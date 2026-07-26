@@ -5,8 +5,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
-  // base: mode === 'production' ? '/nikesh_portfolio' : '/',
-  base: '/nikesh_portfolio',
+  base: mode === 'production' ? '/nikesh_portfolio/' : '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
