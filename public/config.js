@@ -1,5 +1,5 @@
 window.__EMAILJS_CONFIG__ = {
-    serviceId: 'YOUR_SERVICE_ID',
-    templateId: 'YOUR_TEMPLATE_ID',
-    publicKey: 'YOUR_PUBLIC_KEY'
+    serviceId: 'service_4w0x6kq',
+    templateId: 'template_qzq8p0t',
+    publicKey: 'dck7lV3cXrQq2Yy5T3xE9'
 };

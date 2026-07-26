@@ -44,9 +44,9 @@ const Contact = () => {
 
         try {
             const emailjsConfig = typeof window !== 'undefined' && window.__EMAILJS_CONFIG__ ? window.__EMAILJS_CONFIG__ : {};
-            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || emailjsConfig.serviceId || "";
-            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || emailjsConfig.templateId || "";
-            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || emailjsConfig.publicKey || "";
+            const serviceId = emailjsConfig.serviceId || import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
+            const templateId = emailjsConfig.templateId || import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
+            const publicKey = emailjsConfig.publicKey || import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "";
 
             console.groupCollapsed('[EmailJS Debug]');
             console.log('Environment:', import.meta.env.MODE);
@@ -54,8 +54,8 @@ const Contact = () => {
             console.log('serviceId:', serviceId || '(missing)');
             console.log('templateId:', templateId || '(missing)');
             console.log('publicKey:', publicKey ? `${publicKey.slice(0, 6)}...` : '(missing)');
-            // console.groupEnd();
-            if (!serviceId || !templateId || !publicKey || serviceId === 'YOUR_SERVICE_ID' || templateId === 'YOUR_TEMPLATE_ID' || publicKey === 'YOUR_PUBLIC_KEY') {
+            console.groupEnd();
+            if (!serviceId || !templateId || !publicKey || serviceId.includes('YOUR_') || templateId.includes('YOUR_') || publicKey.includes('YOUR_')) {
                 setSubmitStatus({
                     type: "error",
                     message: "EmailJS is not configured yet. Replace the placeholder values in public/config.js with your real service ID, template ID, and public key."
