@@ -2,11 +2,13 @@ import { ArrowUpRight } from 'lucide-react'
 import React from 'react'
 import AnimatedBorderButton from '@/components/AnimatedBorderButton'
 
+const withBaseUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`
+
 const projects = [
     {
         title: 'Mister Car Wash',
         description: 'Led the frontend architecture for a large-scale, customer-facing platform serving 500+ locations with Google Maps-based discovery, membership flows, and responsive UX across web and mobile experiences.',
-        image: 'public/projects/mistercarwash.jpg',
+        image: withBaseUrl('projects/mistercarwash.jpg'),
         tags: ['React', 'Redux Toolkit', 'AWS', 'Google Maps API'],
         link: 'https://www.linkedin.com/in/nikeshwar-pandey-27014220/',
         github: 'https://mistercarwash.com/'
@@ -14,7 +16,7 @@ const projects = [
     {
         title: 'Intelligent Insights',
         description: 'Delivered the frontend for a data-intensive product handling bot and license information workflows, improving responsiveness and maintaining scalable UI modules for a 20+ member team.',
-        image: 'public/projects/intellingent_insights.jpg',
+        image: withBaseUrl('projects/intellingent_insights.jpg'),
         tags: ['React', 'RTK', 'FusionCharts', 'JavaScript'],
         link: 'https://www.linkedin.com/in/nikeshwar-pandey-27014220/',
         github: 'https://telus-ii.itia.ai/'
@@ -22,7 +24,7 @@ const projects = [
     {
         title: 'Channel 4',
         description: 'Contributed to the MINT delivery phase of a public-service media platform with reusable React components and polished, performance-oriented UI implementation.',
-        image: 'public/projects/channel4_img.png',
+        image: withBaseUrl('projects/channel4_img.png'),
         tags: ['React', 'Bootstrap', 'HTML5', 'CSS3'],
         link: 'https://www.linkedin.com/in/nikeshwar-pandey-27014220/',
         github: 'https://www.channel4.com/'
@@ -30,7 +32,7 @@ const projects = [
     {
         title: 'CC Mobile / Rewardz / AvantiFurs',
         description: 'Built hybrid mobile experiences using Ionic, AngularJS, PhoneGap, and Google Maps with real-time data sync, push notifications, and location-aware features.',
-        image: 'public/projects/connectedCorps_img.webp',
+        image: withBaseUrl('projects/connectedCorps_img.webp'),
         tags: ['Ionic', 'AngularJS', 'PhoneGap', 'Mobile Apps'],
         link: 'https://www.linkedin.com/in/nikeshwar-pandey-27014220/',
         github: 'https://github.com/nikeshwarpandey'
